@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <defs>
+    <linearGradient id="shapeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0099cc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#007aa3;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Hexagon -->
+  <polygon points="150,10 280,75 280,225 150,290 20,225 20,75" 
+           fill="none" stroke="url(#shapeGrad)" stroke-width="2" opacity="0.8"/>
+  
+  <!-- Wewnętrzny hexagon -->
+  <polygon points="150,50 240,95 240,185 150,230 60,185 60,95" 
+           fill="none" stroke="url(#shapeGrad)" stroke-width="1.5" opacity="0.6"/>
+  
+  <!-- Wewnętrzny hexagon -->
+  <polygon points="150,90 200,115 200,165 150,190 100,165 100,115" 
+           fill="none" stroke="url(#shapeGrad)" stroke-width="1" opacity="0.4"/>
+  
+  <!-- Centralny punkt -->
+  <circle cx="150" cy="150" r="5" fill="url(#shapeGrad)" opacity="1"/>
+  
+  <!-- Linie łączące z centrum -->
+  <line x1="150" y1="150" x2="150" y2="10" stroke="url(#shapeGrad)" stroke-width="0.5" opacity="0.3"/>
+  <line x1="150" y1="150" x2="280" y2="75" stroke="url(#shapeGrad)" stroke-width="0.5" opacity="0.3"/>
+  <line x1="150" y1="150" x2="280" y2="225" stroke="url(#shapeGrad)" stroke-width="0.5" opacity="0.3"/>
+  <line x1="150" y1="150" x2="150" y2="290" stroke="url(#shapeGrad)" stroke-width="0.5" opacity="0.3"/>
+  <line x1="150" y1="150" x2="20" y2="225" stroke="url(#shapeGrad)" stroke-width="0.5" opacity="0.3"/>
+  <line x1="150" y1="150" x2="20" y2="75" stroke="url(#shapeGrad)" stroke-width="0.5" opacity="0.3"/>
+  
+  <!-- Punkty w rogach -->
+  <circle cx="150" cy="10" r="3" fill="url(#shapeGrad)" opacity="0.8"/>
+  <circle cx="280" cy="75" r="3" fill="url(#shapeGrad)" opacity="0.8"/>
+  <circle cx="280" cy="225" r="3" fill="url(#shapeGrad)" opacity="0.8"/>
+  <circle cx="150" cy="290" r="3" fill="url(#shapeGrad)" opacity="0.8"/>
+  <circle cx="20" cy="225" r="3" fill="url(#shapeGrad)" opacity="0.8"/>
+  <circle cx="20" cy="75" r="3" fill="url(#shapeGrad)" opacity="0.8"/>
+</svg>

@@ -1,0 +1,142 @@
+/* Styl dla siatki funkcji (grid), która rozmieszcza karty w responsywny sposób */
+.featuresGrid {
+  display: grid; /* Użycie siatki CSS */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Automatyczne dopasowanie kolumn */
+  gap: 3rem; /* Odstępy między elementami */
+  margin: 0 auto; /* Wyśrodkowanie siatki */
+  max-width: 1200px; /* Maksymalna szerokość siatki */
+}
+
+/* Styl dla pojedynczej karty funkcji */
+.featureCard {
+  background-color: var(--background); /* Tło karty, użycie zmiennej CSS */
+  border-radius: 16px; /* Zaokrąglone rogi */
+  padding: 3rem 2rem; /* Wewnętrzne odstępy */
+  box-shadow: var(--shadow); /* Cień karty */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Płynne przejścia */
+  text-align: center; /* Wyśrodkowanie tekstu */
+  position: relative; /* Pozycjonowanie względne dla pseudo-elementów */
+  overflow: hidden; /* Ukrycie elementów wychodzących poza kartę */
+  z-index: 1; /* Ustawienie warstwy */
+  border: 1px solid var(--border); /* Obramowanie karty */
+}
+
+/* Efekt hover dla karty funkcji */
+.featureCard:hover {
+  transform: translateY(-15px); /* Przesunięcie karty w górę */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); /* Zwiększenie cienia */
+  border-color: var(--primary); /* Zmiana koloru obramowania */
+}
+
+/* Pseudo-element przed kartą, używany do efektu wizualnego */
+.featureCard::before {
+  content: ''; /* Pusty element */
+  position: absolute; /* Pozycjonowanie absolutne */
+  top: 0; /* Góra elementu */
+  left: 0; /* Lewa strona elementu */
+  width: 100%; /* Szerokość elementu */
+  height: 0; /* Początkowa wysokość */
+  background-color: rgba(0, 153, 204, 0.05); /* Kolor tła z przezroczystością */
+  transition: height 0.4s ease; /* Płynne przejście wysokości */
+  z-index: -1; /* Umieszczenie za kartą */
+}
+
+/* Efekt hover dla pseudo-elementu przed kartą */
+.featureCard:hover::before {
+  height: 100%; /* Wypełnienie całej karty */
+}
+
+/* Styl dla ikony w karcie funkcji */
+.featureIcon {
+  font-size: 3rem; /* Rozmiar ikony */
+  color: var(--primary); /* Kolor ikony */
+  margin-bottom: 2rem; /* Odstęp poniżej ikony */
+  transition: all 0.4s ease; /* Płynne przejścia */
+  display: inline-block; /* Wyświetlanie jako blok inline */
+  position: relative; /* Pozycjonowanie względne */
+}
+
+/* Pseudo-element pod ikoną, używany do efektu wizualnego */
+.featureIcon::after {
+  content: ''; /* Pusty element */
+  position: absolute; /* Pozycjonowanie absolutne */
+  bottom: -10px; /* Pozycja poniżej ikony */
+  left: 50%; /* Wyśrodkowanie */
+  transform: translateX(-50%); /* Korekta wyśrodkowania */
+  width: 40px; /* Szerokość linii */
+  height: 3px; /* Wysokość linii */
+  background-color: var(--primary); /* Kolor linii */
+  opacity: 0; /* Ukrycie linii */
+  transition: all 0.4s ease; /* Płynne przejścia */
+}
+
+/* Efekt hover dla ikony w karcie funkcji */
+.featureCard:hover .featureIcon {
+  transform: scale(1.15); /* Powiększenie ikony */
+  color: var(--primary-dark); /* Zmiana koloru ikony */
+}
+
+/* Efekt hover dla pseudo-elementu pod ikoną */
+.featureCard:hover .featureIcon::after {
+  opacity: 1; /* Uwidocznienie linii */
+  width: 60px; /* Zwiększenie szerokości linii */
+}
+
+/* Styl dla nagłówka w karcie funkcji */
+.featureCard h3 {
+  font-size: 1.7rem; /* Rozmiar czcionki */
+  margin-bottom: 1.2rem; /* Odstęp poniżej nagłówka */
+  color: var(--text); /* Kolor tekstu */
+  font-weight: 600; /* Grubość czcionki */
+  transition: var(--transition); /* Płynne przejścia */
+}
+
+/* Efekt hover dla nagłówka */
+.featureCard:hover h3 {
+  color: var(--primary); /* Zmiana koloru tekstu */
+}
+
+/* Styl dla paragrafu w karcie funkcji */
+.featureCard p {
+  color: var(--text-light); /* Kolor tekstu */
+  line-height: 1.7; /* Wysokość linii */
+  font-size: 1.05rem; /* Rozmiar czcionki */
+}
+
+/* Styl dla siatki funkcji na ekranach o szerokości maksymalnie 992px */
+@media (max-width: 992px) {
+  .featuresGrid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Mniejsze kolumny */
+    gap: 2rem; /* Mniejsze odstępy */
+  }
+  
+  .featureCard {
+    padding: 2.5rem 1.5rem; /* Mniejsze odstępy wewnętrzne */
+  }
+  
+  .featureIcon {
+    font-size: 2.5rem; /* Mniejszy rozmiar ikony */
+    margin-bottom: 1.5rem; /* Mniejszy odstęp poniżej ikony */
+  }
+  
+  .featureCard h3 {
+    font-size: 1.5rem; /* Mniejszy rozmiar nagłówka */
+  }
+}
+
+/* Styl dla siatki funkcji na ekranach o szerokości maksymalnie 576px */
+@media (max-width: 576px) {
+  .featuresGrid {
+    grid-template-columns: 1fr; /* Jedna kolumna */
+    gap: 1.5rem; /* Mniejsze odstępy */
+  }
+  
+  .featureIcon {
+    font-size: 2.2rem; /* Jeszcze mniejszy rozmiar ikony */
+    margin-bottom: 1.2rem; /* Jeszcze mniejszy odstęp poniżej ikony */
+  }
+  
+  .featureCard h3 {
+    font-size: 1.4rem; /* Jeszcze mniejszy rozmiar nagłówka */
+  }
+}

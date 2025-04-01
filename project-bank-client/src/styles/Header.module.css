@@ -1,0 +1,146 @@
+.header {
+  background-color: var(--background);
+  box-shadow: var(--shadow);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  transition: var(--transition);
+  height: 80px;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--text);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: none;
+  transition: var(--transition);
+}
+
+.menuButton:hover {
+  color: var(--primary);
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.mainNav {
+  flex: 1;
+  margin-left: 2rem;
+}
+
+.mainNav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.mainNav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: var(--transition);
+}
+
+.mainNav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: var(--transition);
+}
+
+.mainNav a:hover {
+  color: var(--primary);
+}
+
+.mainNav a:hover::after {
+  width: 100%;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.themeToggle {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: var(--transition);
+}
+
+.themeToggle:hover {
+  color: var(--primary);
+  transform: rotate(15deg);
+}
+
+.authButtons {
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 992px) {
+  .mainNav {
+    display: none;
+  }
+  
+  .menuButton {
+    display: block;
+  }
+  
+  .headerContainer {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .authButtons span {
+    display: none;
+  }
+  
+  .authButtons {
+    gap: 0.5rem;
+  }
+}
