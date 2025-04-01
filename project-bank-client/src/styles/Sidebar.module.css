@@ -1,0 +1,15 @@
+.sidebar{
+    width:20vw;
+    height:90vh;
+    color:red;
+    font-size:24px;
+    border:0.4vh solid red;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    position: fixed;
+    top:7vh;
+    left:-25vw;
+    transition: 0.75s ease-in-out left;
+    background-color: white;
+}

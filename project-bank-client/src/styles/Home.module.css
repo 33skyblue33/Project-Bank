@@ -1,0 +1,56 @@
+.header {
+    width:100vw;
+    height:10vh;
+    position: fixed;
+    top:0vh;
+    left:0vw;
+    display: flex;
+    flex-direction: row;
+    gap:1vw;
+}
+
+.logo{
+    width: 30vw;
+    height:3vh;
+    color:rgb(15, 153, 153);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:36px;
+    cursor:pointer;
+}
+
+.hamburger{
+    width:3vw;
+    height:5vh;
+    color:black;
+    text-align: left;
+    
+    
+}
+
+.content {
+    width: 100vw;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.text{
+    font-size:24px;
+    font-family: fantasy;
+    color:rgb(15, 153, 153);
+    width:58vw;
+    height:auto;
+}
+
+.footer {
+    width: 100vw;
+    height: 5vh;
+    margin-top: 5vh;
+    text-align: center;
+    font-size:24px;
+    font-family: fantasy;
+    color:rgb(15, 153, 153);
+   
+}
