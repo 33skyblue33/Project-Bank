@@ -1,0 +1,100 @@
+/* Klasa bazowa dla przycisków */
+.button {
+  display: inline-flex; /* Ustawia elementy wewnątrz w linii i umożliwia ich elastyczne rozmieszczenie */
+  align-items: center; /* Wyrównuje elementy w pionie */
+  justify-content: center; /* Wyrównuje elementy w poziomie */
+  gap: 0.6rem; /* Odstęp między elementami wewnątrz przycisku */
+  padding: 0.8rem 1.8rem; /* Wewnętrzne odstępy (góra/dół, lewo/prawo) */
+  font-size: 1rem; /* Rozmiar tekstu */
+  font-weight: 500; /* Grubość tekstu */
+  border-radius: 8px; /* Zaokrąglenie rogów */
+  cursor: pointer; /* Zmienia kursor na wskaźnik przy najechaniu */
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animacja przejścia */
+  border: none; /* Usuwa obramowanie */
+  outline: none; /* Usuwa domyślny kontur */
+  font-family: 'Poppins', sans-serif; /* Czcionka */
+  position: relative; /* Ustawia element jako względny dla pseudo-elementów */
+  overflow: hidden; /* Ukrywa elementy wychodzące poza obszar */
+  z-index: 1; /* Ustawia warstwę elementu */
+}
+
+/* Efekt wizualny po najechaniu kursorem */
+.button::after {
+  content: ''; /* Tworzy pusty pseudo-element */
+  position: absolute; /* Pozycjonowanie względem rodzica */
+  top: 0; /* Ustawienie na górze */
+  left: 0; /* Ustawienie na lewej krawędzi */
+  width: 100%; /* Szerokość pseudo-elementu */
+  height: 100%; /* Wysokość pseudo-elementu */
+  background: rgba(255, 255, 255, 0.1); /* Półprzezroczyste tło */
+  transform: scale(0); /* Początkowy rozmiar */
+  transform-origin: center; /* Punkt początkowy transformacji */
+  border-radius: 50%; /* Zaokrąglenie */
+  z-index: -1; /* Umieszczenie za przyciskiem */
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1); /* Animacja powiększenia */
+}
+
+/* Powiększenie efektu po najechaniu */
+.button:hover::after {
+  transform: scale(2); /* Powiększenie pseudo-elementu */
+}
+
+/* Styl dla przycisku głównego */
+.primary {
+  background-color: var(--primary); /* Kolor tła */
+  color: white; /* Kolor tekstu */
+  box-shadow: 0 4px 12px rgba(0, 153, 204, 0.2); /* Cień */
+}
+
+/* Efekt po najechaniu na przycisk główny */
+.primary:hover {
+  background-color: var(--primary-dark); /* Ciemniejszy kolor tła */
+  transform: translateY(-5px); /* Przesunięcie w górę */
+  box-shadow: 0 8px 20px rgba(0, 153, 204, 0.3); /* Większy cień */
+}
+
+/* Styl dla przycisku drugorzędnego */
+.secondary {
+  background-color: transparent; /* Przezroczyste tło */
+  color: var(--text); /* Kolor tekstu */
+  border: 2px solid var(--border); /* Obramowanie */
+  box-shadow: none; /* Brak cienia */
+}
+
+/* Efekt po najechaniu na przycisk drugorzędny */
+.secondary:hover {
+  border-color: var(--primary); /* Zmiana koloru obramowania */
+  color: var(--primary); /* Zmiana koloru tekstu */
+  transform: translateY(-5px); /* Przesunięcie w górę */
+}
+
+/* Styl dla małych przycisków */
+.small {
+  padding: 0.6rem 1.2rem; /* Mniejsze odstępy */
+  font-size: 0.875rem; /* Mniejszy rozmiar tekstu */
+  border-radius: 6px; /* Mniejsze zaokrąglenie */
+}
+
+/* Styl dla dużych przycisków */
+.large {
+  padding: 1.2rem 2.4rem; /* Większe odstępy */
+  font-size: 1.125rem; /* Większy rozmiar tekstu */
+  border-radius: 10px; /* Większe zaokrąglenie */
+  font-weight: 600; /* Grubszy tekst */
+}
+
+/* Przyciski na pełną szerokość */
+.fullWidth {
+  width: 100%; /* Rozciągnięcie na całą szerokość */
+}
+
+/* Styl dla stanu focus (dostępność) */
+.button:focus {
+  outline: none; /* Usunięcie domyślnego konturu */
+  box-shadow: 0 0 0 3px rgba(0, 153, 204, 0.3); /* Obrys wokół przycisku */
+}
+
+/* Styl dla stanu aktywnego */
+.button:active {
+  transform: scale(0.98); /* Zmniejszenie przycisku */
+}

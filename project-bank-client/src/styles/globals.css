@@ -1,0 +1,294 @@
+/* Importowanie czcionki Poppins z Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Definicja zmiennych CSS dla motywu jasnego */
+:root {
+  --primary: #ef32de; /* Główny kolor */
+  --primary-light: #cb72c4; /* Jaśniejszy odcień głównego koloru */
+  --primary-dark: #d12cc3; /* Ciemniejszy odcień głównego koloru */
+  --secondary: #2a2a2a; /* Kolor drugorzędny */
+  --accent: #ff9500; /* Kolor akcentowy */
+  --text: #8d1f84; /* Kolor tekstu */
+  --text-light: #757575; /* Jaśniejszy kolor tekstu */
+  --background: #ffffff; /* Kolor tła */
+  --background-alt: #f7f9fc; /* Alternatywne tło */
+  --border: #e0e0e0; /* Kolor obramowania */
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Cień elementów */
+  --transition: all 0.3s ease; /* Domyślna animacja przejścia */
+  --header-height: 80px; /* Wysokość nagłówka */
+}
+
+/* Definicja zmiennych CSS dla motywu ciemnego */
+.dark-theme {
+  --primary: #00b3e6; /* Główny kolor w trybie ciemnym */
+  --primary-dark: #0099cc; /* Ciemniejszy odcień głównego koloru */
+  --secondary: #f0f0f0; /* Kolor drugorzędny */
+  --accent: #ffaa33; /* Kolor akcentowy */
+  --text: #f0f0f0; /* Kolor tekstu */
+  --text-light: #cccccc; /* Jaśniejszy kolor tekstu */
+  --background: #121212; /* Kolor tła */
+  --background-alt: #1e1e1e; /* Alternatywne tło */
+  --border: #2c2c2c; /* Kolor obramowania */
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Cień elementów */
+}
+
+/* Resetowanie marginesów, paddingów i ustawienie box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Płynne przewijanie strony */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Stylowanie elementu body */
+body {
+  font-family: 'Poppins', sans-serif; /* Ustawienie czcionki */
+  color: var(--text); /* Kolor tekstu */
+  background-color: var(--background); /* Kolor tła */
+  line-height: 1.6; /* Wysokość linii tekstu */
+  overflow-x: hidden; /* Ukrycie przewijania w poziomie */
+  font-size: 16px; /* Rozmiar czcionki */
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  opacity: 0.45;
+  background-image: url(./backgrounds/holo.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+body.dark-theme::before {
+  opacity: 0.5;
+  filter: invert(1);
+}
+
+.container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+}
+
+input, textarea, select {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* Stylowanie przycisków */
+.btn {
+  display: inline-flex; /* Ustawienie elementu jako elastycznego */
+  align-items: center; /* Wyrównanie elementów w pionie */
+  justify-content: center; /* Wyrównanie elementów w poziomie */
+  gap: 0.5rem; /* Odstęp między elementami wewnątrz przycisku */
+  padding: 0.9rem 1.8rem; /* Wewnętrzne odstępy */
+  background-color: var(--primary); /* Kolor tła */
+  color: white; /* Kolor tekstu */
+  border: none; /* Brak obramowania */
+  border-radius: 8px; /* Zaokrąglenie rogów */
+  font-weight: 500; /* Grubość czcionki */
+  transition: var(--transition); /* Animacja przejścia */
+  text-align: center; /* Wyrównanie tekstu */
+  font-size: 1rem; /* Rozmiar czcionki */
+}
+
+/* Efekt hover dla przycisków */
+.btn:hover {
+  background-color: var(--primary-dark); /* Zmiana koloru tła */
+  transform: translateY(-3px); /* Przesunięcie w górę */
+  box-shadow: 0 10px 20px rgba(0, 153, 204, 0.2); /* Dodanie cienia */
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text);
+  border: 2px solid var(--border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.section {
+  padding: 6rem 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.4rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  width: 80px;
+  height: 3px;
+  background-color: var(--primary);
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Layout Utilities */
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid {
+  display: grid;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+.mt-5 { margin-top: 3rem; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+.mb-5 { margin-bottom: 3rem; }
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Media queries dla responsywności */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px; /* Maksymalna szerokość kontenera */
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 720px;
+  }
+  
+  html {
+    font-size: 15px; /* Zmniejszenie rozmiaru czcionki */
+  }
+  
+  .section {
+    padding: 5rem 0; /* Zmniejszenie odstępów sekcji */
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 540px;
+    padding: 0 1.5rem;
+  }
+  
+  html {
+    font-size: 14px;
+  }
+  
+  .section {
+    padding: 4rem 0;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .section {
+    padding: 3rem 0;
+  }
+}
