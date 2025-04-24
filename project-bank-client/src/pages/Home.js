@@ -1,24 +1,22 @@
-// Importujemy potrzebne biblioteki i komponenty
-import { React, useState, useEffect } from "react"; // React oraz hooki useState i useEffect
-import styles from "../styles/Home.module.css"; // Import stylów CSS jako moduł
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Ikony FontAwesome
+import { React, useState, useEffect } from "react"; 
+import styles from "../styles/Home.module.css"; 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
 import {
   faBars,
   faMoon,
   faSun,
   faPhoneVolume,
   faArrowRight,
-} from "@fortawesome/free-solid-svg-icons"; // Konkretne ikony z FontAwesome
-import { Sidebar } from "../components/Sidebar"; // Komponent Sidebar
-import { useTheme } from "../context/ThemeContext"; // Kontekst do obsługi motywu (ciemny/jasny)
-import { Header } from "../components/Header"; // Komponent nagłówka
-import { Features } from "../components/Features"; // Komponent sekcji funkcji
-import { Button } from "../components/Button"; // Komponent przycisku
-import friends from "./friends.png"; // Obrazek używany w sekcji hero
+} from "@fortawesome/free-solid-svg-icons"; 
+import { Sidebar } from "../components/Sidebar"; 
+import { useTheme } from "../context/ThemeContext"; 
+import { Header } from "../components/Header"; 
+import { Features } from "../components/Features"; 
+import { Button } from "../components/Button"; 
+import friends from "./friends.png"; 
 
-// Główny komponent strony Home
+
 export function Home() {
-  // Stan do zarządzania otwieraniem/zamykaniem paska bocznego
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // Pobieramy wartości z kontekstu motywu
